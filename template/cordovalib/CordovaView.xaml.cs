@@ -428,6 +428,21 @@ namespace WPCordovaClassLib
             {
                 Debug.WriteLine("Error calling js to fire nativeReady event. Did you include cordova.js in your html script tag?");
             }
+
+            // send in any launch context info
+            PhoneApplicationFrame rootFrame = Application.Current.RootVisual as PhoneApplicationFrame;
+            string activateContext = string.Format("(function(){{cordova.fireDocumentEvent('activated',{{'type':'launch','args':['{0}']}})}})();", rootFrame.CurrentSource.OriginalString);
+            try
+            {
+                CordovaBrowser.InvokeScript("eval", new string[] { activateContext });
+            }
+            catch (Exception /*ex*/)
+            {
+                Debug.WriteLine("Error calling js to fire activateContext event. Did you include cordova.js in your html script tag?");
+            }
+
+
+
             // attach js code to dispatch exitApp 
             string appExitHandler = "(function(){navigator.app = navigator.app || {}; navigator.app.exitApp= function(){cordova.exec(null,null,'CoreEvents','__exitApp',[]); }})();";
             try
