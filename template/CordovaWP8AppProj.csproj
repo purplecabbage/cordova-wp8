@@ -28,8 +28,8 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>$safeprojectname$</RootNamespace>
-    <AssemblyName>$safeprojectname$</AssemblyName>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <AssemblyName>MyProj</AssemblyName>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <SilverlightVersion>
     </SilverlightVersion>
     <TargetFrameworkProfile>
@@ -39,13 +39,14 @@
     <SupportedCultures>en-US</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>CordovaAppProj_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>CordovaWP8AppProj_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>$safeprojectname$.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <BackgroundAgentType />
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <BackgroundAgentType>AgentLibrary</BackgroundAgentType>
+    <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -164,7 +165,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -181,6 +184,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\WideLogo.png" />
     <Content Include="config.xml" />
     <Content Include="www\**" />
     <Content Include="Images\appbar.back.rest.png" />
